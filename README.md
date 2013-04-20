@@ -1,6 +1,6 @@
 # Tower Query-to-Topology
 
-This module is a basic implementation of converting the `Query` DSL into a `Topology`. Feel free to improve it.
+This module is a basic implementation of converting the `Query` DSL into a `Topology`.
 
 ## Installation
 
