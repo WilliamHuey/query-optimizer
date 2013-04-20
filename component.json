@@ -1,0 +1,12 @@
+{
+  "name": "tower-query-to-topology",
+  "repo": "tower/query-to-topology",
+  "description": "Tower Query To Topology component",
+  "version": "0.0.1",
+  "keywords": [],
+  "development": {
+    "visionmedia/mocha": "*"
+  },
+  "scripts": ["index.js"],
+  "license": "MIT"
+}
