@@ -37,7 +37,7 @@ function queryToTopology(ns, constraints) {
         break;
       case 'constraint':
         // XXX: shouldn't have to create another array here, tmp for now.
-        topology.streams[name].constraints.push([ constraint[2], constraint[1], constraint[3] ]);
+        topology.streams[name].constraints.push([ constraint[1].attr, constraint[2], constraint[3] ]);
         break;
       case 'action':
         topology.streams[name].data = constraint[2];
