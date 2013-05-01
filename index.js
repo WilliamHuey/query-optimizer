@@ -18,6 +18,8 @@ module.exports = optimize;
  *
  * XXX: This is going to become more robust.
  *
+ * @see http://www.cs.ox.ac.uk/people/dan.olteanu/theses/Robert.Taylor.pdf
+ *
  * @param {String} ns Adapter namespace
  * @param {Array} constraints
  */
