@@ -1,6 +1,6 @@
 {
-  "name": "tower-query-to-topology",
-  "repo": "tower/query-to-topology",
+  "name": "tower-query-optimizer",
+  "repo": "tower/query-optimizer",
   "description": "Tower Query To Topology component",
   "version": "0.0.1",
   "keywords": [],
