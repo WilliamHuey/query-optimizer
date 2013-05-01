@@ -45,7 +45,7 @@ function optimize(query, fn) {
     // optimize(this).exec();
     // 
     // XXX: do validations right here before going to the adapter.
-    return adapter(_adapter).exec(query.criteria, fn);
+    return adapter(_adapter).exec(query, fn);
   });
 }
 
