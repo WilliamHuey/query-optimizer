@@ -1,4 +1,4 @@
-# Tower Query-to-Topology
+# Tower Query Optimizer
 
 This module is a basic implementation of converting the `Query` DSL into a `Topology`.
 
@@ -7,19 +7,13 @@ This module is a basic implementation of converting the `Query` DSL into a `Topo
 node.js:
 
 ```bash
-npm install tower-query-to-topology
+$ npm install tower-query-optimizer
 ```
 
 browser:
 
 ```bash
-component install tower/query-to-topology
-```
-
-## Example
-
-```js
-var project = require('tower-query-to-topology');
+$ component install tower/tower-query-optimizer
 ```
 
 ## Licence
