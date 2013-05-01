@@ -5,7 +5,7 @@
 
 var Topology = require('tower-topology').Topology
   , stream = require('tower-stream')
-  , adapter;
+  , adapter = require('tower-adapter');
 
 /**
  * Expose `optimize`.
@@ -20,32 +20,18 @@ module.exports = optimize;
  * XXX: This is going to become more robust.
  *
  * @see http://www.cs.ox.ac.uk/people/dan.olteanu/theses/Robert.Taylor.pdf
- *
- * @param {String} ns Adapter namespace
- * @param {Array} constraints
- */
-
-function optimize(query, fn) {
-  return execute(query, fn);
-}
-
-var execute = function(query, fn) {
-  // lazy load adapter, to prevent dependency cycles.
-  adapter = require('tower-adapter');
-  execute = exec;
-  return exec(query, fn);
-}
-
-/**
  * Compile query to a `Topology`.
  *
  * Builds an acyclic dependency graph.
  *
  * Make sure the graph is **acyclic** (no directed cycles)!
  * @see http://stackoverflow.com/questions/261573/best-algorithm-for-detecting-cycles-in-a-directed-graph
+ *
+ * @param {String} ns Adapter namespace
+ * @param {Array} constraints
  */
 
-function exec(query, fn) {
+function optimize(query, fn) {
   validate(query, function(err){
     if (err) return fn(err);
 
