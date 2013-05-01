@@ -34,18 +34,19 @@ module.exports = optimize;
 function optimize(query, fn) {
   validate(query, function(err){
     if (err) return fn(err);
-    // XXX: only support one adapter for now.
-    var _adapter = (query.adapters && query.adapters[0]) || 'memory';
-    // this.validate();
-    // @see http://infolab.stanford.edu/~hyunjung/cs346/ioannidis.pdf
-    // var plan = require('tower-query-plan');
-    // plan(this).exec()
-    // this.validate().plan().exec();
-    // optimize(this).exec();
-    // 
-    // XXX: do validations right here before going to the adapter.
-    return adapter(_adapter).exec(query, fn);
   });
+
+  // XXX: only support one adapter for now.
+  var _adapter = (query.adapters && query.adapters[0]) || 'memory';
+  // this.validate();
+  // @see http://infolab.stanford.edu/~hyunjung/cs346/ioannidis.pdf
+  // var plan = require('tower-query-plan');
+  // plan(this).exec()
+  // this.validate().plan().exec();
+  // optimize(this).exec();
+  // 
+  // XXX: do validations right here before going to the adapter.
+  return adapter(_adapter).exec(query, fn);
 }
 
 optimize.topology = exec;
