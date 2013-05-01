@@ -34,7 +34,6 @@ module.exports = optimize;
 function optimize(query, fn) {
   validate(query, function(err){
     if (err) return fn(err);
-    console.log(query)
     // XXX: only support one adapter for now.
     var _adapter = (query.adapters && query.adapters[0]) || 'memory';
     // this.validate();
