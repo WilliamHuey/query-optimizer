@@ -62,7 +62,7 @@ function validate(query, fn) {
   // XXX: only supports one action at a time atm.
   query.errors = [];
   var criteria = query.criteria;
-  var action = criteria[criteria.length - 1][1];
+  var action = criteria[criteria.length - 1][1].type;
   var ctx = query;
   // XXX: collect validators for model and for each attribute.
   // var modelValidators = model(criteria[0][1].ns).validators;
@@ -89,7 +89,7 @@ function exec(ns, constraints) {
     , name
     , constraint
     // query/create/update/remove
-    , action = constraints[constraints.length - 1][1];
+    , action = constraints[constraints.length - 1][1].type;
 
   for (var i = 0, n = constraints.length; i < n; i++) {
     constraint = constraints[i];
@@ -103,7 +103,7 @@ function exec(ns, constraints) {
         topology.streams[name].constraints.push([ constraint[1].attr, constraint[2], constraint[3] ]);
         break;
       case 'action':
-        topology.streams[name].data = constraint[2];
+        topology.streams[name].data = constraint[1].data;
         break;
     }
   }
