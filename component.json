@@ -5,7 +5,9 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "tower-topology": "*"
+    "tower/topology": "*",
+    "tower/stream": "*",
+    "tower/adapter": "*"
   },
   "development": {
     "visionmedia/mocha": "*"
