@@ -48,6 +48,9 @@ function optimize(query, fn) {
   });
 }
 
+optimize.topology = exec;
+optimize.validate = validate;
+
 /**
  * Add validations to perform before this is executed.
  *
@@ -80,7 +83,7 @@ function validate(query, fn) {
 }
 
 // old
-function topo(ns, constraints) {
+function exec(ns, constraints) {
   var topology = new Topology
     , name
     , constraint
