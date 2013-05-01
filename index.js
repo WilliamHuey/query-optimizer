@@ -33,6 +33,15 @@ var execute = function(query, fn) {
   return exec(query, fn);
 }
 
+/**
+ * Compile query to a `Topology`.
+ *
+ * Builds an acyclic dependency graph.
+ *
+ * Make sure the graph is **acyclic** (no directed cycles)!
+ * @see http://stackoverflow.com/questions/261573/best-algorithm-for-detecting-cycles-in-a-directed-graph
+ */
+
 function exec(query, fn) {
   // XXX: only support one adapter for now.
   var _adapter = query.adapters[0] || 'memory';
