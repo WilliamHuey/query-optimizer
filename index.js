@@ -81,6 +81,7 @@ function validate(query, fn) {
       if (params[constraint.left.attr]) {
         // XXX: refactor
         params[constraint.left.attr].validate(ctx, constraint);
+        // $ tower list ec2:group --name 'hello-again-again,hello-again'
         constraint.right.value =
           params[constraint.left.attr].typecast(constraint.right.value);
       }
