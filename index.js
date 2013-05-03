@@ -5,7 +5,9 @@
 
 var Topology = require('tower-topology').Topology
   , stream = require('tower-stream')
-  , adapter = require('tower-adapter');
+  , adapter = require('tower-adapter')
+  // XXX: tmp
+  , model = require('tower-model');
 
 /**
  * Expose `optimize`.
@@ -70,15 +72,21 @@ function validate(query, fn) {
     if ('constraint' !== criteria[i][0]) continue;
 
     var constraint = criteria[i][1];
+    // XXX: tmp, way to load
+    model(constraint.left.ns);
 
     if (stream.exists(constraint.left.ns + '.' + action)) {
       var _action = stream(constraint.left.ns + '.' + action);//.params;
       var params = _action.params;
       if (params[constraint.left.attr]) {
+        // XXX: refactor
         params[constraint.left.attr].validate(ctx, constraint);
+        constraint.right.value =
+          params[constraint.left.attr].typecast(constraint.right.value);
       }
     }
   }
+
   // return query.push('validate', fn);
   query.errors.length ? fn(query.errors) : fn();
 }
