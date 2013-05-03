@@ -72,8 +72,6 @@ function validate(query, fn) {
     if ('constraint' !== criteria[i][0]) continue;
 
     var constraint = criteria[i][1];
-    // XXX: tmp, way to load
-    model(constraint.left.ns);
 
     if (stream.exists(constraint.left.ns + '.' + action)) {
       var _action = stream(constraint.left.ns + '.' + action);//.params;
